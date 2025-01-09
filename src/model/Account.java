@@ -9,6 +9,8 @@ public class Account implements BankingService {
         this.accountName = accountName;
     }
     public Account(){}
+    private static final double EXCHANGE_RATE_KHR = 4100;
+
     @Override
     public void withdraw(double cash) {
         if(cash>this.cash){
@@ -34,4 +36,23 @@ public class Account implements BankingService {
         System.out.println("======================");
         System.out.println("[+] Your balance: " + this.cash + " $");
     }
+
+    @Override
+    public void getKHCurrency()
+    {
+        System.out.println("======================");
+        System.out.println("[+] Your current balance in KHR: " + this.cash * EXCHANGE_RATE_KHR + "៛");
+    }
+
+    @Override
+    public void getDollarCurrency()
+    {
+        System.out.println("[+] ======================");
+        System.out.println("Your current balance in USD: " + this.cash + "$");
+    }
+    public boolean login(String email, String password) {
+        return email.equals("seyla@gmail.com") && password.equals("123");
+    }
+
+
 }
